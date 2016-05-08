@@ -17,3 +17,8 @@ docker run -it \
 # Caveats and Workarounds
 * Attempting to detach with the tmux keybinding `ctrl+a d` will kill the container, but you can detach via the docker keybinding `ctrl+p ctrl+q`
 * Attempting to attach to the running tmux session with `docker exec` and `tmux attach` will fail with `open terminal failed: not a terminal`, but `docker attach` works
+
+# Related projects
+
+* Eugene Yaramenko's dockerized gui spacemacs on [github](https://github.com/JAremko/spacemacs) and [Docker hub](https://hub.docker.com/r/jare/spacemacs/)
+* Gregory Nisbit's [spacemacs-docker](https://github.com/gregory-nisbit/spacemacs-docker) (Non-functional as of this writing)
