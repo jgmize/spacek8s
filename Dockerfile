@@ -1,8 +1,8 @@
 FROM quay.io/mozmar/ubuntu-slim
 
-RUN apt-get update && apt-get install -y --no-install-recommends emacs24-nox tmux git
+RUN apt-get update && apt-get install -y --no-install-recommends emacs24-nox tmux git ssh
 
-RUN adduser --uid 1000 --disabled-password --gecos '' spacemacs
+RUN adduser --uid 1001 --disabled-password --gecos '' spacemacs
 WORKDIR /home/spacemacs
 
 COPY spacemacs /home/spacemacs/.emacs.d
@@ -14,4 +14,4 @@ USER spacemacs
 
 ENV LANG C.UTF-8
 RUN emacs -nw -batch -u "${UNAME}" -q -kill
-CMD ["tmux","new"," emacs"]
+CMD ["tmux","new","emacs"]
