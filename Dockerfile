@@ -1,4 +1,4 @@
-FROM quay.io/mozmar/ubuntu-slim
+FROM quay.io/deis/base:0.2.0
 
 RUN apt-get update && apt-get install -y --no-install-recommends emacs24-nox tmux git ssh
 
