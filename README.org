@@ -1,0 +1,34 @@
+* [[https://github.com/syl20bnr/spacemacs][Spacemacs]] within [[http://tmux.github.io/][tmux]] within a [[https://www.docker.com/][Docker]] container 
+
+** The [[https://github.com/jgmize/dotfiles/blob/master/.tmux.conf][tmux config]] has been customized to be closer to screen and vim
+*** The tmux bind key is ctrl+a
+
+* Usage Examples
+
+** map the current directory to =~/src= in the container
+#+BEGIN_SRC sh
+docker run -itv $(pwd):/home/spacemacs/src quay.io/jgmize/spacemacs-tmux
+#+END_SRC
+** map the current directory to =~/src= in the container and use the host =.ssh= and =.gitconfig=
+#+BEGIN_SRC sh
+docker run -it \
+  -v $(pwd):/home/spacemacs/src \
+  -v $HOME/.ssh:/home/spacemacs/.ssh \
+  -v $HOME/.gitconfig:/home/spacemacs/.gitconfig \
+  quay.io/jgmize/spacemacs-tmux
+#+END_SRC
+
+* Caveats and Workarounds
+
+-  Attempting to detach with the tmux keybinding =ctrl+a d= will kill
+   the container, but you can detach via the docker keybinding
+   =ctrl+p ctrl+q=
+-  Attempting to attach to the running tmux session with =docker exec=
+   and =tmux attach= will fail with
+   =open terminal failed: not a terminal=, but =docker attach= works
+
+* Related projects
+
+- Eugene Yaramenko's dockerized gui spacemacs on [[https://github.com/JAremko/spacemacs][github]] and [[https://hub.docker.com/r/jare/spacemacs/][Docker hub]]
+- Gregory Nisbit's [[https://github.com/gregory-nisbit/spacemacs-docker][spacemacs-docker]]
+  - (Non-functional as of this writing)
