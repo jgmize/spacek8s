@@ -8,6 +8,7 @@ WORKDIR /home/spacemacs
 COPY spacemacs /home/spacemacs/.emacs.d
 COPY dotfiles/.spacemacs /home/spacemacs/
 COPY dotfiles/.tmux.conf /home/spacemacs/
+COPY dotfiles/.bash* /home/spacemacs/
 
 RUN chown spacemacs.spacemacs -R .
 USER spacemacs
