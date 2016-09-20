@@ -1,6 +1,6 @@
 [submodule "spacemacs"]
 	path = spacemacs
-	url = https://github.com/jgmize/spacemacs
+	url = https://github.com/syl20bnr/spacemacs
 [submodule "dotfiles"]
 	path = dotfiles
 	url = https://github.com/jgmize/dotfiles
