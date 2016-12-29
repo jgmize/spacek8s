@@ -1,7 +1,7 @@
 REGISTRY ?= quay.io/
 IMAGE_PREFIX ?= jgmize
 IMAGE_NAME ?= spacemacs-tmux
-VERSION ?= latest
+VERSION ?= ec2
 IMAGE ?= ${REGISTRY}${IMAGE_PREFIX}/${IMAGE_NAME}\:${VERSION}
 
 
