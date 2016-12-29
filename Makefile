@@ -8,6 +8,12 @@ IMAGE ?= ${REGISTRY}${IMAGE_PREFIX}/${IMAGE_NAME}\:${VERSION}
 build:
 	docker build -t ${IMAGE} .
 
+pull:
+	docker pull ${IMAGE}
+
+push:
+	docker push ${IMAGE}
+
 home:
 	docker run -itv $$HOME:/home/spacemacs/home ${IMAGE}
 
