@@ -1,7 +1,7 @@
 REGISTRY ?= quay.io/
 IMAGE_PREFIX ?= jgmize
 IMAGE_NAME ?= spacemacs-tmux
-VERSION ?= latest
+VERSION ?= $(shell git rev-parse --abrev-ref HEAD)
 IMAGE ?= ${REGISTRY}${IMAGE_PREFIX}/${IMAGE_NAME}\:${VERSION}
 
 
@@ -20,8 +20,7 @@ home:
 dev:
 	docker run -itv $$HOME:/home/spacemacs/home \
 		-v $$HOME/dotfiles:/home/spacemacs/dotfiles \
-		-v $$HOME/.ssh:/home/spacemacs/.ssh \
 	  -v $$HOME/.gitconfig:/home/spacemacs/.gitconfig \
+		-v $$HOME/.ssh:/home/spacemacs/.ssh \
+		-v $$SSH_AUTH_SOCK:/ssh-agent -e SSH_AUTH_SOCK=/ssh-agent \
 	  ${IMAGE}
-
-.PHONY: dotfiles spacemacs
