@@ -1,0 +1,7 @@
+#!/bin/bash
+
+REGISTRY=quay.io/
+IMAGE_PREFIX=jgmize
+IMAGE_NAME=spacemacs-tmux
+VERSION=${VERSION:-$(git rev-parse --abbrev-ref HEAD)}
+IMAGE=${REGISTRY}${IMAGE_PREFIX}/${IMAGE_NAME}:${VERSION}
